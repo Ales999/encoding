@@ -28,7 +28,7 @@ func TestUTF8(t *testing.T) {
 	}
 }
 
-func TestDstShortUTF8(t *testing.T) {
+func TestDstShortUTF8Decoder(t *testing.T) {
 	decoder := ISO8859_1.NewDecoder()
 
 	out := make([]byte, 1)
@@ -40,6 +40,19 @@ func TestDstShortUTF8(t *testing.T) {
 	} else if !errors.Is(err, transform.ErrShortDst) {
 		t.Errorf("Wrong error return: %v", err)
 	}
+}
+
+func TestDstShortUTF8Encoder(t *testing.T) {
+
+	encoder := UTF8.NewEncoder()
+	nat := []byte("À")
+	out := make([]byte, 1)
+        _, _, err := encoder.Transform(out, nat, true)
+        if err == nil {
+                t.Errorf("Passed but should not have")
+        } else if !errors.Is(err, transform.ErrShortDst) {
+                t.Errorf("Wrong error return: %v", err)
+        }
 }
 
 func TestSrcShortUTF8(t *testing.T) {
