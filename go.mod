@@ -1,4 +1,4 @@
-module github.com/gdamore/encoding
+module github.com/ales999/encoding
 
 go 1.9
 
