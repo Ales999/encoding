@@ -1,5 +1,5 @@
 version: 1.0.{build}
-clone_folder: c:\gopath\src\github.com\gdamore\encoding
+clone_folder: c:\gopath\src\github.com\ales999\encoding
 environment:
   GOPATH: c:\gopath
 build_script:
